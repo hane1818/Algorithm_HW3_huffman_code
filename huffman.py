@@ -20,3 +20,16 @@ class Node:
 
     def addCode(self, code):
         self.code = code + self.code
+
+
+def setHuffcode(root, code):
+    root.addCode(code)
+
+    try:
+        setHuffcode(root.left, '1')
+    except:
+        pass
+    try:
+        setHuffcode(root.right, '0')
+    except:
+        pass
