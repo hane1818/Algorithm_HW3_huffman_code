@@ -1,3 +1,7 @@
+import sys
+from operator import attrgetter
+
+
 class Node:
 
     def __init__(self):
@@ -22,14 +26,55 @@ class Node:
         self.code = code + self.code
 
 
-def setHuffcode(root, code):
-    root.addCode(code)
+def buildHuffTree(tree):
 
-    try:
-        setHuffcode(root.left, '1')
-    except:
-        pass
-    try:
-        setHuffcode(root.right, '0')
-    except:
-        pass
+    def setHuffcode(root, code):
+        root.addCode(code)
+
+        try:
+            setHuffcode(root.left, code)
+        except:
+            pass
+        try:
+            setHuffcode(root.right, code)
+        except:
+            pass
+
+        return root
+
+#    for i in range(10):
+#        setHuffcode(tree[i], str(i))
+
+    while len(tree) >= 2:
+        sorted(tree, key=attrgetter('weight'))
+        newNode = Node()
+        name = tree[0].name + tree[1].name
+        weight = tree[0].weight + tree[1].weight
+        newNode.initSet(name, weight)
+        tree[0].setRoot(newNode)
+        tree[1].setRoot(newNode)
+        setHuffcode(tree[0], '1')
+        setHuffcode(tree[1], '0')
+        newNode.setLeft = tree[0]
+        newNode.setRight = tree[1]
+        tree.pop(1)
+        tree.pop(0)
+        tree.append(newNode)
+
+
+def main():
+    weight = input()
+    decode = input()
+    weight = weight.split()
+
+    Tree = [Node() for i in range(len(weight))]
+
+    for i, T in enumerate(Tree):
+        T.initSet(str(i), float(weight[i]))
+
+    buildHuffTree(Tree)
+
+
+if __name__ == '__main__':
+    main()
+    sys.exit()
