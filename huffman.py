@@ -42,11 +42,8 @@ def buildHuffTree(tree):
 
         return root
 
-#    for i in range(10):
-#        setHuffcode(tree[i], str(i))
-
     while len(tree) >= 2:
-        sorted(tree, key=attrgetter('weight'))
+        tree = sorted(tree, key=attrgetter('weight'))
         newNode = Node()
         name = tree[0].name + tree[1].name
         weight = tree[0].weight + tree[1].weight
@@ -55,25 +52,54 @@ def buildHuffTree(tree):
         tree[1].setRoot(newNode)
         setHuffcode(tree[0], '1')
         setHuffcode(tree[1], '0')
-        newNode.setLeft = tree[0]
-        newNode.setRight = tree[1]
+        newNode.setLeft(tree[0])
+        newNode.setRight(tree[1])
         tree.pop(1)
         tree.pop(0)
         tree.append(newNode)
 
 
+def Decoder(codelist, code):
+    huffDecode = dict((i.code, i.name) for i in codelist)
+    newcode = ''
+    while len(code) != 0:
+        for i in range(len(code)):
+            try:
+                newcode += huffDecode[code[0:i+1]]
+                code = code[i+1:len(code)+1]
+                break
+            except:
+                pass
+    print(newcode, code)
+
+
+def Encoder(codelist, code):
+    huffIncode = dict((i.name, i.code) for i in codelist)
+    newcode = ''
+    for i in range(len(code)):
+        try:
+            newcode += huffIncode[code[i]]
+        except:
+            pass
+    print(newcode, code)
+
+
 def main():
     weight = input()
-    decode = input()
+    code = input()
     weight = weight.split()
 
     Tree = [Node() for i in range(len(weight))]
+    originNode = []
 
     for i, T in enumerate(Tree):
         T.initSet(str(i), float(weight[i]))
+        originNode.append(T)
 
     buildHuffTree(Tree)
-
+    Decoder(originNode, code)
+#    for i, n in enumerate(originNode):
+#        print(n.name, n.weight, n.code)
 
 if __name__ == '__main__':
     main()
