@@ -84,7 +84,7 @@ def Encoder(codelist, code):
     print(newcode, code)
 
 
-def main():
+def main(opt):
     weight = input()
     code = input()
     weight = weight.split()
@@ -97,10 +97,15 @@ def main():
         originNode.append(T)
 
     buildHuffTree(Tree)
-    Decoder(originNode, code)
-#    for i, n in enumerate(originNode):
-#        print(n.name, n.weight, n.code)
+
+    option = opt
+    if option == '-e':
+        Encoder(originNode, code)
+    elif option == '-d':
+        Decoder(originNode, code)
+    else:
+        print("The option doesn't exist.")
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])
     sys.exit()
