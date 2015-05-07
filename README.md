@@ -8,10 +8,12 @@ Learn how to use Python to implement the Huffman code.
 
 ## How to use
 
-1. Encoder:
+Encoder:
+
     python huffman.py -e  # Should to tell the program you want to use encoder by typing the sequence '-e'.
 
-2. Decoder(default):
+Decoder(default):
+
     python huffman.py     # I set the decoder default
     python huffman.py -d  # You don't need to typing the sequence '-d' when you want to use decoder.
 
