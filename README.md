@@ -10,18 +10,24 @@ Learn how to use Python to implement the Huffman code.
 
 Encoder:
 
-    python huffman.py -e  # Should to tell the program you want to use encoder by typing the sequence '-e'.
+    python huffman.py -e
+    # Should to tell the program you want to use encoder by typing the sequence '-e'.
 
 Decoder(default):
 
-    python huffman.py     # I set the decoder default
-    python huffman.py -d  # You don't need to typing the sequence '-d' when you want to use decoder.
+    python huffman.py     
+    # I set the decoder default
+    python huffman.py -d  
+    # You don't need to typing the sequence '-d' when you want to use decoder.
 
 ## Input type
 
-    0.0239 0.1470 0.1450 0.0735 0.1212 0.0215 0.0639 0.1387 0.1200 0.1453  # First line is the weight of digit 0~9
-    1011011100010011011111100000000000000  # Second line is a sequence need to be encode/decode.
+    0.0239 0.1470 0.1450 0.0735 0.1212 0.0215 0.0639 0.1387 0.1200 0.1453  
+    # First line is the weight of digit 0~9
+    1011011100010011011111100000000000000  
+    # Second line is a sequence need to be encode/decode.
 
 ## Output type
 
-    886277341111  # The sequence after encode/decode.
+    886277341111  
+    # The sequence after encode/decode.
