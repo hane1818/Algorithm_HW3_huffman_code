@@ -70,7 +70,7 @@ def Decoder(codelist, code):
                 break
             except:
                 pass
-    print(newcode, code)
+    print(newcode)
 
 
 def Encoder(codelist, code):
@@ -81,7 +81,7 @@ def Encoder(codelist, code):
             newcode += huffIncode[code[i]]
         except:
             pass
-    print(newcode, code)
+    print(newcode)
 
 
 def main(opt):
@@ -107,5 +107,9 @@ def main(opt):
         print("The option doesn't exist.")
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    try:
+        option = sys.argv[1]
+    except:
+        option = '-d'
+    main(option)
     sys.exit()
