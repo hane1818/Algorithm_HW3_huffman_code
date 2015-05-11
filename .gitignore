@@ -1,3 +1,7 @@
 Samples
-Samples.zip
 VENV
+
+*.zip
+*.rar
+*.docx
+*.pdf
