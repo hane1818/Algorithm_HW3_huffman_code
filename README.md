@@ -9,14 +9,14 @@ Learn how to use Python to implement the Huffman code.
 ## How to use
 
 Encoder:
-```py
-python huffman.py -e
+```bash
+$ python huffman.py -e
 # Should to tell the program you want to use encoder by typing the sequence '-e'.
 ```
 Decoder(default):
-```py
-python huffman.py     
-python huffman.py -d  
+```bash
+$ python huffman.py     
+$ python huffman.py -d  
 # I set the decoder default
 # You don't need to typing the sequence '-d' when you want to use decoder.
 ```
