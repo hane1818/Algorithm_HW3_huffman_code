@@ -6,6 +6,9 @@ Learn how to use Python to implement the Huffman code.
 1. Encoder : Convert digit 0~9 to huffman code.
 2. Decoder : Convert huffman code to digit 0~9
 
+## Language
+Python3
+
 ## How to use
 
 Encoder:
